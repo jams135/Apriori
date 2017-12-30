@@ -17,8 +17,8 @@ def prune(list1,c1):
 			list2.append(list1[i])
 	return list2		
 
-#min_sup=input("\nenter minimum support")
-min_sup=3
+min_sup=input("\nenter minimum support")
+#min_sup=3
 
 transactions=[["Mango","Onion","Jar","KeyChain","Eggs","Chocolates"],["Nuts","Onion","Jar","KeyChain","Eggs","Chocolates"],["Mango","Apple","KeyChain","Eggs"],["Mango","Toothbrush","Corn","KeyChain","Chocolates"],["Corn","Onion","Onion","KeyChain","Knife","Eggs"]]
 
@@ -188,9 +188,11 @@ for item in (list6):
 
 """
 Output:
-jamila@ubuntu:~/apriori$ python ap3.py
+jamila@ubuntu:~/apriori$ python apriori.py
 
 enter minimum support3
+
+
 =======================Transactions=======================
 
 Mango Onion Jar KeyChain Eggs Chocolates 
@@ -203,10 +205,18 @@ Mango Toothbrush Corn KeyChain Chocolates
 
 Corn Onion Onion KeyChain Knife Eggs 
 
-Unique list1
+
+
+
+1 frequent itemset(Unique items in list1)
+
 ['Mango', 'Onion', 'Jar', 'KeyChain', 'Eggs', 'Chocolates', 'Nuts', 'Apple', 'Toothbrush', 'Corn', 'Knife']
 
+
+count for 1-itemset
+
 list1     		c1
+
 Mango     		3
 Onion     		3
 Jar     		2
@@ -219,46 +229,67 @@ Toothbrush     		1
 Corn     		2
 Knife     		1
 
-Prune
+
+Prune 1 frequent itemset
+
 After pruning list1 we get list2
 
 list2
+
 Mango
 Onion
 KeyChain
 Eggs
 Chocolates
 
+
 2 frequent itemset
+
 [('Mango', 'Onion'), ('Mango', 'KeyChain'), ('Mango', 'Eggs'), ('Mango', 'Chocolates'), ('Onion', 'KeyChain'), ('Onion', 'Eggs'), ('Onion', 'Chocolates'), ('KeyChain', 'Eggs'), ('KeyChain', 'Chocolates'), ('Eggs', 'Chocolates')]
 
+
 count for 2-itemset
-list3     		c3
-['Mango', 'Onion']     		1
-['Mango', 'KeyChain']     		3
-['Mango', 'Eggs']     		2
-['Mango', 'Chocolates']     		2
-['Onion', 'KeyChain']     		3
-['Onion', 'Eggs']     		3
-['Onion', 'Chocolates']     		2
-['KeyChain', 'Eggs']     		4
-['KeyChain', 'Chocolates']     		3
-['Eggs', 'Chocolates']     		2
-Prune (2 frequent itemset)
+
+                                 'list3'       'c3'
+                      ['Mango', 'Onion']          1
+                   ['Mango', 'KeyChain']          3
+                       ['Mango', 'Eggs']          2
+                 ['Mango', 'Chocolates']          2
+                   ['Onion', 'KeyChain']          3
+                       ['Onion', 'Eggs']          3
+                 ['Onion', 'Chocolates']          2
+                    ['KeyChain', 'Eggs']          4
+              ['KeyChain', 'Chocolates']          3
+                  ['Eggs', 'Chocolates']          2
+
+
+Prune 2 frequent itemset
 
 after pruning list3 we get list4
+
+list4
+
 ['Mango', 'KeyChain']
 ['Onion', 'KeyChain']
 ['Onion', 'Eggs']
 ['KeyChain', 'Eggs']
 ['KeyChain', 'Chocolates']
-list5     		c5
+
+
+3 frequent itemset with count
+
+list5     					c5
+
 ['Onion', 'KeyChain', 'Eggs']     		3
 ['KeyChain', 'Eggs', 'Chocolates']     		2
 
+
 after pruning list5 we get list6
+
 list6
+
 ['Onion', 'KeyChain', 'Eggs']
+
 
 Association rules		confidence
 Onion ---> ['KeyChain', 'Eggs']   1.0
@@ -268,4 +299,5 @@ Eggs ---> ['Onion', 'KeyChain']   0.75
 ['Onion', 'Eggs'] ---> KeyChain   1.0
 ['KeyChain', 'Eggs'] ---> Onion   0.75
 jamila@ubuntu:~/apriori$ 
+
 """
